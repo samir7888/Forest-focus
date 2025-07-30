@@ -1,0 +1,67 @@
+<svg width="1024" height="768" viewBox="0 0 1024 768" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sky gradient -->
+  <defs>
+    <linearGradient id="skyGradientTablet" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0F6FF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="treeGradientTablet" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#228B22;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#006400;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="trunkGradientTablet" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A0522D;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky background -->
+  <rect width="1024" height="768" fill="url(#skyGradientTablet)"/>
+  
+  <!-- Ground -->
+  <rect x="0" y="550" width="1024" height="218" fill="#2D5A27"/>
+  
+  <!-- Background trees -->
+  <g opacity="0.7">
+    <!-- Tree 1 -->
+    <rect x="80" y="450" width="35" height="100" fill="url(#trunkGradientTablet)"/>
+    <circle cx="97" cy="435" r="55" fill="url(#treeGradientTablet)"/>
+    
+    <!-- Tree 2 -->
+    <rect x="250" y="420" width="40" height="130" fill="url(#trunkGradientTablet)"/>
+    <circle cx="270" cy="405" r="65" fill="url(#treeGradientTablet)"/>
+    
+    <!-- Tree 3 -->
+    <rect x="400" y="440" width="38" height="110" fill="url(#trunkGradientTablet)"/>
+    <circle cx="419" cy="425" r="60" fill="url(#treeGradientTablet)"/>
+  </g>
+  
+  <!-- Midground trees -->
+  <g opacity="0.85">
+    <!-- Tree 4 -->
+    <rect x="600" y="380" width="45" height="170" fill="url(#trunkGradientTablet)"/>
+    <circle cx="622" cy="365" r="75" fill="url(#treeGradientTablet)"/>
+    
+    <!-- Tree 5 -->
+    <rect x="800" y="400" width="42" height="150" fill="url(#trunkGradientTablet)"/>
+    <circle cx="821" cy="385" r="70" fill="url(#treeGradientTablet)"/>
+  </g>
+  
+  <!-- Foreground trees -->
+  <g>
+    <!-- Tree 6 -->
+    <rect x="30" y="320" width="55" height="230" fill="url(#trunkGradientTablet)"/>
+    <circle cx="57" cy="305" r="90" fill="url(#treeGradientTablet)"/>
+    
+    <!-- Tree 7 -->
+    <rect x="920" y="340" width="52" height="210" fill="url(#trunkGradientTablet)"/>
+    <circle cx="946" cy="325" r="85" fill="url(#treeGradientTablet)"/>
+  </g>
+  
+  <!-- Sunlight rays -->
+  <g opacity="0.3">
+    <polygon points="512,0 522,0 580,250 570,250" fill="#FFD700"/>
+    <polygon points="502,0 512,0 560,250 550,250" fill="#FFD700"/>
+    <polygon points="522,0 532,0 590,250 580,250" fill="#FFD700"/>
+  </g>
+</svg>

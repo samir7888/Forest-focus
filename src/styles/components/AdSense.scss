@@ -1,0 +1,81 @@
+.ad-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+
+  &.header-ad {
+    margin: 0.5rem 0;
+    max-width: 728px;
+    width: 100%;
+
+    @media (max-width: 768px) {
+      max-width: 320px;
+    }
+  }
+
+  &.footer-ad {
+    margin: 1rem 0;
+    max-width: 728px;
+    width: 100%;
+
+    @media (max-width: 768px) {
+      max-width: 320px;
+    }
+  }
+
+  &.sidebar-ad {
+    max-width: 300px;
+    width: 100%;
+    margin: 1rem auto;
+  }
+
+  .adsbygoogle {
+    border-radius: 8px;
+    overflow: hidden;
+
+    // Placeholder styling for development
+    &:empty::before {
+      content: "AdSense Placeholder";
+      display: block;
+      padding: 2rem;
+      background: linear-gradient(135deg, #f0f8f0, #e8f5e8);
+      border: 2px dashed #4a7c59;
+      border-radius: 8px;
+      text-align: center;
+      color: #2d5a27;
+      font-family: "Inter", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+  }
+}
+
+// Responsive ad sizing
+@media (max-width: 480px) {
+  .ad-container {
+    margin: 0.5rem 0;
+
+    .adsbygoogle {
+      min-height: 100px;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .ad-container {
+    &.header-ad,
+    &.footer-ad {
+      max-width: 468px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .ad-container {
+    &.header-ad,
+    &.footer-ad {
+      max-width: 728px;
+    }
+  }
+}

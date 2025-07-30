@@ -1,0 +1,106 @@
+.settings-panel {
+  .settings-form {
+    margin-bottom: 2rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #2d5a27;
+    font-size: 1rem;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+    background-color: white;
+
+    &:focus {
+      outline: none;
+      border-color: #4a7c59;
+      box-shadow: 0 0 0 3px rgba(74, 124, 89, 0.1);
+    }
+
+    &--error {
+      border-color: #dc3545;
+
+      &:focus {
+        border-color: #dc3545;
+        box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+      }
+    }
+
+    &::placeholder {
+      color: #999;
+    }
+
+    // Remove spinner arrows for number inputs
+    &[type="number"] {
+      -moz-appearance: textfield;
+
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+  }
+
+  .form-error {
+    display: block;
+    margin-top: 0.25rem;
+    color: #dc3545;
+    font-size: 0.875rem;
+  }
+
+  .form-hint {
+    display: block;
+    margin-top: 0.25rem;
+    color: #666;
+    font-size: 0.875rem;
+  }
+
+  .settings-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e5e5;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .settings-panel {
+    .settings-actions {
+      flex-direction: column-reverse;
+      gap: 0.75rem;
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    .form-input {
+      padding: 0.625rem;
+      font-size: 0.9rem;
+    }
+
+    .form-label {
+      font-size: 0.9rem;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="settingsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A7C59;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2D5A27;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Gear teeth -->
+  <path d="M12 1 L14 4 L17 3 L18 6 L21 7 L20 10 L23 12 L20 14 L21 17 L18 18 L17 21 L14 20 L12 23 L10 20 L7 21 L6 18 L3 17 L4 14 L1 12 L4 10 L3 7 L6 6 L7 3 L10 4 Z" 
+        fill="url(#settingsGradient)" 
+        stroke="#2D5A27" 
+        stroke-width="0.5"/>
+  
+  <!-- Center circle -->
+  <circle cx="12" cy="12" r="4" 
+          fill="#6B9B73" 
+          stroke="#2D5A27" 
+          stroke-width="1"/>
+  
+  <!-- Inner circle -->
+  <circle cx="12" cy="12" r="2.5" 
+          fill="none" 
+          stroke="#4A7C59" 
+          stroke-width="1"/>
+  
+  <!-- Center dot -->
+  <circle cx="12" cy="12" r="1" 
+          fill="#2D5A27"/>
+</svg>

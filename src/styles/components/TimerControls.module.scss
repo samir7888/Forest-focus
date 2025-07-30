@@ -1,0 +1,362 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+// TimerControls component styles
+.timerControls {
+  @include flex-column;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  @include glass-effect;
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  max-width: 400px;
+
+  @include mobile-only {
+    padding: var(--space-4);
+    gap: var(--space-4);
+  }
+}
+
+// Primary controls container
+.primaryControls {
+  @include flex-center;
+  width: 100%;
+}
+
+// Secondary controls container
+.secondaryControls {
+  @include flex-center;
+  gap: var(--space-4);
+  width: 100%;
+  flex-wrap: wrap;
+
+  @include mobile-only {
+    gap: var(--space-3);
+  }
+}
+
+// Base button styles
+.controlButton {
+  @include button-base;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  position: relative;
+  overflow: hidden;
+  min-width: 120px;
+
+  // Hover effect overlay
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+  }
+
+  &:hover:not(:disabled)::before {
+    opacity: 1;
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+
+  @include mobile-only {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--font-size-sm);
+    min-width: 100px;
+  }
+
+  @include xs {
+    min-width: 90px;
+  }
+}
+
+// Button icon styles
+.buttonIcon {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--transition-fast);
+
+  .controlButton:hover:not(:disabled) & {
+    transform: scale(1.1);
+  }
+
+  @include mobile-only {
+    width: 18px;
+    height: 18px;
+  }
+
+  @include xs {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+// Button text styles
+.buttonText {
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.02em;
+
+  @include xs {
+    @include sr-only;
+  }
+}
+
+// Start button styles
+.startButton {
+  @include forest-gradient;
+  color: var(--text-on-primary);
+  box-shadow: var(--shadow-md);
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(
+      135deg,
+      var(--primary-green-dark),
+      var(--primary-green)
+    );
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+}
+
+// Pause button styles
+.pauseButton {
+  background: linear-gradient(135deg, var(--warning), var(--warning-light));
+  color: var(--text-on-primary);
+  box-shadow: var(--shadow-md);
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, var(--warning-dark), var(--warning));
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+}
+
+// Reset button styles
+.resetButton {
+  background: linear-gradient(135deg, var(--text-muted), var(--text-secondary));
+  color: var(--text-on-primary);
+  box-shadow: var(--shadow-md);
+  min-width: 100px;
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, var(--text-secondary), var(--text));
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  @include mobile-only {
+    min-width: 90px;
+  }
+}
+
+// Settings button styles
+.settingsButton {
+  background: linear-gradient(
+    135deg,
+    var(--accent-brown),
+    var(--accent-brown-light)
+  );
+  color: var(--text-on-primary);
+  box-shadow: var(--shadow-md);
+  min-width: 100px;
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(
+      135deg,
+      var(--accent-brown-dark),
+      var(--accent-brown)
+    );
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  @include mobile-only {
+    min-width: 90px;
+  }
+}
+
+// Status indicator
+.statusIndicator {
+  @include flex-center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+
+  @include mobile-only {
+    font-size: var(--font-size-xs);
+    padding: var(--space-1) var(--space-3);
+  }
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-normal);
+
+  &.idle {
+    background: var(--text-muted);
+  }
+
+  &.active {
+    background: var(--success);
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+    @include pulse-animation;
+  }
+
+  &.paused {
+    background: var(--warning);
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+  }
+
+  @include mobile-only {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+.statusText {
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-semibold);
+}
+
+// Accessibility improvements
+@include reduced-motion {
+  .controlButton {
+    transition: none;
+
+    &::before {
+      transition: none;
+    }
+
+    &:hover:not(:disabled) {
+      transform: none;
+    }
+
+    &:active:not(:disabled) {
+      transform: none;
+    }
+  }
+
+  .buttonIcon {
+    transition: none;
+
+    .controlButton:hover:not(:disabled) & {
+      transform: none;
+    }
+  }
+
+  .statusDot {
+    transition: none;
+
+    &.active {
+      animation: none;
+    }
+  }
+}
+
+@include high-contrast {
+  .controlButton {
+    border: 2px solid currentColor;
+  }
+
+  .statusIndicator {
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+}
+
+// Focus styles for keyboard navigation
+.controlButton {
+  @include focus-visible;
+}
+
+// Keyboard instructions styles
+.keyboardInstructions {
+  margin-top: var(--space-4);
+  width: 100%;
+  max-width: 400px;
+}
+
+.instructionsDetails {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-md);
+  padding: var(--space-2);
+}
+
+.instructionsSummary {
+  cursor: pointer;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  padding: var(--space-2);
+  border-radius: var(--radius-sm);
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  &:focus {
+    outline: 2px solid var(--border-focus);
+    outline-offset: 2px;
+  }
+}
+
+.instructionsContent {
+  padding: var(--space-3) var(--space-2) var(--space-2);
+}
+
+.shortcutsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+
+  li {
+    margin-bottom: var(--space-1);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  kbd {
+    background: var(--background-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 2px 6px;
+    font-size: var(--font-size-xs);
+    font-family: var(--font-mono);
+    color: var(--text-primary);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+}

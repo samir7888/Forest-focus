@@ -1,0 +1,149 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Sky gradient with more natural colors -->
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#B0E0E6;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#E0F6FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F0F8F0;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Tree foliage gradients -->
+    <radialGradient id="treeGradient1" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#32CD32;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#228B22;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#006400;stop-opacity:1" />
+    </radialGradient>
+    
+    <radialGradient id="treeGradient2" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#90EE90;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#4A7C59;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2D5A27;stop-opacity:1" />
+    </radialGradient>
+    
+    <!-- Trunk gradient with texture -->
+    <linearGradient id="trunkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#654321;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#A0522D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B4513;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Ground gradient -->
+    <linearGradient id="groundGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A7C59;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#2D5A27;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1A3D17;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Sunlight filter -->
+    <filter id="sunlight" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Sky background -->
+  <rect width="1920" height="1080" fill="url(#skyGradient)"/>
+  
+  <!-- Distant mountains/hills -->
+  <path d="M0,600 Q480,500 960,550 T1920,580 L1920,1080 L0,1080 Z" fill="#6B9B73" opacity="0.4"/>
+  <path d="M0,650 Q320,580 640,620 T1280,640 Q1600,630 1920,650 L1920,1080 L0,1080 Z" fill="#4A7C59" opacity="0.6"/>
+  
+  <!-- Ground with texture -->
+  <rect x="0" y="750" width="1920" height="330" fill="url(#groundGradient)"/>
+  
+  <!-- Ground details - grass patches -->
+  <ellipse cx="200" cy="780" rx="80" ry="15" fill="#4A7C59" opacity="0.8"/>
+  <ellipse cx="500" cy="790" rx="120" ry="20" fill="#4A7C59" opacity="0.7"/>
+  <ellipse cx="800" cy="785" rx="100" ry="18" fill="#4A7C59" opacity="0.8"/>
+  <ellipse cx="1200" cy="795" rx="90" ry="16" fill="#4A7C59" opacity="0.7"/>
+  <ellipse cx="1600" cy="788" rx="110" ry="22" fill="#4A7C59" opacity="0.8"/>
+  
+  <!-- Background trees (far) -->
+  <g opacity="0.5">
+    <rect x="150" y="620" width="25" height="130" fill="url(#trunkGradient)"/>
+    <ellipse cx="162" cy="600" rx="45" ry="60" fill="url(#treeGradient2)"/>
+    
+    <rect x="280" y="600" width="30" height="150" fill="url(#trunkGradient)"/>
+    <ellipse cx="295" cy="575" rx="55" ry="70" fill="url(#treeGradient1)"/>
+    
+    <rect x="420" y="630" width="28" height="120" fill="url(#trunkGradient)"/>
+    <ellipse cx="434" cy="610" rx="50" ry="65" fill="url(#treeGradient2)"/>
+    
+    <rect x="1400" y="610" width="32" height="140" fill="url(#trunkGradient)"/>
+    <ellipse cx="1416" cy="585" rx="58" ry="75" fill="url(#treeGradient1)"/>
+    
+    <rect x="1600" y="625" width="26" height="125" fill="url(#trunkGradient)"/>
+    <ellipse cx="1613" cy="605" rx="48" ry="62" fill="url(#treeGradient2)"/>
+  </g>
+  
+  <!-- Midground trees -->
+  <g opacity="0.75">
+    <rect x="700" y="480" width="45" height="270" fill="url(#trunkGradient)"/>
+    <ellipse cx="722" cy="450" rx="85" ry="110" fill="url(#treeGradient1)"/>
+    <ellipse cx="710" cy="430" rx="60" ry="80" fill="url(#treeGradient2)"/>
+    
+    <rect x="1100" y="500" width="50" height="250" fill="url(#trunkGradient)"/>
+    <ellipse cx="1125" cy="470" rx="90" ry="115" fill="url(#treeGradient2)"/>
+    <ellipse cx="1135" cy="450" rx="65" ry="85" fill="url(#treeGradient1)"/>
+    
+    <rect x="1350" y="460" width="55" height="290" fill="url(#trunkGradient)"/>
+    <ellipse cx="1377" cy="425" rx="95" ry="120" fill="url(#treeGradient1)"/>
+    <ellipse cx="1365" cy="405" rx="70" ry="90" fill="url(#treeGradient2)"/>
+  </g>
+  
+  <!-- Foreground trees (detailed) -->
+  <g>
+    <!-- Left foreground tree -->
+    <rect x="80" y="350" width="70" height="400" fill="url(#trunkGradient)"/>
+    <!-- Tree texture lines -->
+    <line x1="90" y1="400" x2="90" y2="700" stroke="#654321" stroke-width="2" opacity="0.6"/>
+    <line x1="140" y1="380" x2="140" y2="720" stroke="#654321" stroke-width="2" opacity="0.6"/>
+    <!-- Main foliage -->
+    <ellipse cx="115" cy="310" rx="120" ry="150" fill="url(#treeGradient1)"/>
+    <ellipse cx="100" cy="290" rx="90" ry="120" fill="url(#treeGradient2)"/>
+    <ellipse cx="130" cy="280" rx="80" ry="100" fill="url(#treeGradient1)"/>
+    
+    <!-- Right foreground tree -->
+    <rect x="1750" y="380" width="65" height="370" fill="url(#trunkGradient)"/>
+    <!-- Tree texture lines -->
+    <line x1="1760" y1="420" x2="1760" y2="720" stroke="#654321" stroke-width="2" opacity="0.6"/>
+    <line x1="1800" y1="400" x2="1800" y2="740" stroke="#654321" stroke-width="2" opacity="0.6"/>
+    <!-- Main foliage -->
+    <ellipse cx="1782" cy="340" rx="110" ry="140" fill="url(#treeGradient2)"/>
+    <ellipse cx="1795" cy="320" rx="85" ry="110" fill="url(#treeGradient1)"/>
+    <ellipse cx="1770" cy="310" rx="75" ry="95" fill="url(#treeGradient2)"/>
+  </g>
+  
+  <!-- Sunlight rays with filter -->
+  <g opacity="0.25" filter="url(#sunlight)">
+    <polygon points="900,0 920,0 1050,500 1030,500" fill="#FFD700"/>
+    <polygon points="920,0 940,0 1070,500 1050,500" fill="#FFF8DC"/>
+    <polygon points="940,0 960,0 1090,500 1070,500" fill="#FFD700"/>
+    <polygon points="960,0 980,0 1110,500 1090,500" fill="#FFF8DC"/>
+    <polygon points="980,0 1000,0 1130,500 1110,500" fill="#FFD700"/>
+  </g>
+  
+  <!-- Atmospheric particles/dust -->
+  <g opacity="0.3">
+    <circle cx="400" cy="300" r="2" fill="#FFF8DC"/>
+    <circle cx="600" cy="250" r="1.5" fill="#FFD700"/>
+    <circle cx="800" cy="280" r="2.5" fill="#FFF8DC"/>
+    <circle cx="1000" cy="220" r="1" fill="#FFD700"/>
+    <circle cx="1200" cy="260" r="2" fill="#FFF8DC"/>
+    <circle cx="1400" cy="240" r="1.5" fill="#FFD700"/>
+  </g>
+  
+  <!-- Subtle vignette effect -->
+  <defs>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:0" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0.1" />
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#vignette)"/>
+</svg>

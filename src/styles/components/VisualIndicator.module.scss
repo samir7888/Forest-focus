@@ -1,0 +1,309 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+// VisualIndicator component styles
+.visualIndicator {
+  @include flex-column;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  @include glass-effect;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+  min-height: 400px;
+  width: 100%;
+  max-width: 300px;
+
+  @include mobile-only {
+    min-height: 350px;
+    max-width: 250px;
+    padding: var(--space-4);
+  }
+
+  @include xs {
+    min-height: 300px;
+    max-width: 200px;
+  }
+
+  // Focus mode styling
+  &.focusMode {
+    border: 2px solid var(--primary-green);
+    background: linear-gradient(
+      135deg,
+      rgba(45, 90, 39, 0.05),
+      rgba(74, 124, 89, 0.05)
+    );
+    color: var(--primary-green);
+
+    .progressFill {
+      @include forest-gradient;
+    }
+  }
+
+  // Break mode styling
+  &.breakMode {
+    border: 2px solid var(--accent-brown);
+    background: linear-gradient(
+      135deg,
+      rgba(139, 69, 19, 0.05),
+      rgba(160, 82, 45, 0.05)
+    );
+    color: var(--accent-brown);
+
+    .progressFill {
+      background: linear-gradient(
+        90deg,
+        var(--accent-brown-light),
+        var(--accent-brown)
+      );
+    }
+  }
+
+  // Active state styling
+  &.active {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl);
+
+    &.focusMode {
+      box-shadow: 0 8px 30px rgba(45, 90, 39, 0.2);
+    }
+
+    &.breakMode {
+      box-shadow: 0 8px 30px rgba(139, 69, 19, 0.2);
+    }
+  }
+
+  // Inactive state styling
+  &.inactive {
+    opacity: 0.7;
+  }
+}
+
+// Tree container
+.treeContainer {
+  flex: 1;
+  @include flex-center;
+  width: 100%;
+  max-width: 200px;
+}
+
+// SVG tree styling
+.treeSvg {
+  width: 100%;
+  height: 300px;
+  transition: all var(--transition-normal);
+
+  .active & {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  }
+
+  @include mobile-only {
+    height: 250px;
+  }
+
+  @include xs {
+    height: 200px;
+  }
+}
+
+// Tree parts
+.trunk {
+  transition: all var(--transition-normal);
+
+  .focusMode & {
+    fill: var(--accent-brown);
+  }
+
+  .breakMode & {
+    fill: var(--accent-brown-dark);
+  }
+}
+
+.roots {
+  transition: all var(--transition-normal);
+
+  .focusMode & {
+    fill: var(--accent-brown);
+  }
+
+  .breakMode & {
+    fill: var(--accent-brown-dark);
+  }
+}
+
+.crown {
+  transition: all var(--transition-slow);
+}
+
+.crownLayer {
+  transition: all var(--transition-slow);
+
+  .focusMode & {
+    fill: var(--primary-green);
+  }
+
+  .breakMode & {
+    fill: var(--accent-brown);
+  }
+
+  &:nth-child(1) {
+    opacity: 0.9;
+  }
+
+  &:nth-child(2) {
+    opacity: 0.8;
+  }
+
+  &:nth-child(3) {
+    opacity: 0.7;
+  }
+}
+
+// Animated leaves
+.animatedLeaves {
+  .leaf {
+    animation: leafFloat 3s ease-in-out infinite;
+    transform-origin: center;
+
+    .focusMode & {
+      fill: var(--secondary-green);
+    }
+
+    .breakMode & {
+      fill: var(--accent-brown-light);
+    }
+  }
+}
+
+@keyframes leafFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-5px) rotate(5deg);
+    opacity: 1;
+  }
+}
+
+// Progress bar container
+.progressBarContainer {
+  width: 100%;
+  @include flex-column;
+  gap: var(--space-2);
+}
+
+.progressBar {
+  @include progress-bar;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width var(--transition-normal);
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    animation: shimmer 2s infinite;
+  }
+
+  .active & {
+    &::after {
+      animation: shimmer 1.5s infinite;
+    }
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.progressText {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  opacity: 0.8;
+  transition: all var(--transition-normal);
+
+  .active & {
+    opacity: 1;
+  }
+
+  @include mobile-only {
+    font-size: var(--font-size-xs);
+  }
+}
+
+// Accessibility improvements
+@include reduced-motion {
+  .visualIndicator {
+    transition: none;
+  }
+
+  .treeSvg {
+    transition: none;
+  }
+
+  .trunk {
+    transition: none;
+  }
+
+  .roots {
+    transition: none;
+  }
+
+  .crown {
+    transition: none;
+  }
+
+  .crownLayer {
+    transition: none;
+  }
+
+  .progressFill {
+    transition: none;
+
+    &::after {
+      animation: none;
+    }
+  }
+
+  .progressText {
+    transition: none;
+  }
+
+  .animatedLeaves .leaf {
+    animation: none;
+  }
+}
+
+@include high-contrast {
+  .visualIndicator {
+    border-width: 3px;
+    background: var(--background-card);
+  }
+
+  .progressBar {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}

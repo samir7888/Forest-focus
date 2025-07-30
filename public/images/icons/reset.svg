@@ -1,0 +1,26 @@
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="resetGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B4513;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A0522D;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Circular arrow -->
+  <path d="M4 12 A8 8 0 1 1 12 4 A8 8 0 0 1 20 12" 
+        stroke="url(#resetGradient)" 
+        stroke-width="2.5" 
+        fill="none" 
+        stroke-linecap="round"/>
+  
+  <!-- Arrow head -->
+  <path d="M4 12 L8 8 L8 16 Z" 
+        fill="url(#resetGradient)"/>
+  
+  <!-- Inner circle highlight -->
+  <circle cx="12" cy="12" r="6" 
+          stroke="#D2691E" 
+          stroke-width="1" 
+          fill="none" 
+          opacity="0.4"/>
+</svg>

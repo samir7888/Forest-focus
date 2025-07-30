@@ -1,0 +1,29 @@
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="leafGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#90EE90;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#32CD32;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#228B22;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Leaf shape -->
+  <path d="M12 3 C8 3, 4 7, 4 12 C4 17, 8 21, 12 21 C16 17, 20 13, 20 8 C20 5, 16 3, 12 3 Z" 
+        fill="url(#leafGradient)"/>
+  
+  <!-- Leaf vein -->
+  <path d="M12 3 Q12 8, 12 12 Q12 16, 12 21" 
+        stroke="#228B22" 
+        stroke-width="1" 
+        fill="none" 
+        opacity="0.6"/>
+  
+  <!-- Side veins -->
+  <path d="M12 6 Q9 8, 7 10" stroke="#228B22" stroke-width="0.5" fill="none" opacity="0.4"/>
+  <path d="M12 6 Q15 8, 17 10" stroke="#228B22" stroke-width="0.5" fill="none" opacity="0.4"/>
+  <path d="M12 10 Q9 12, 7 14" stroke="#228B22" stroke-width="0.5" fill="none" opacity="0.4"/>
+  <path d="M12 10 Q15 12, 17 14" stroke="#228B22" stroke-width="0.5" fill="none" opacity="0.4"/>
+  
+  <!-- Highlight -->
+  <ellipse cx="10" cy="8" rx="2" ry="3" fill="#90EE90" opacity="0.5"/>
+</svg>

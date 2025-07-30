@@ -1,0 +1,20 @@
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="playGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#32CD32;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#228B22;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Play triangle with rounded corners -->
+  <path d="M8 5 L8 19 L19 12 Z" 
+        fill="url(#playGradient)" 
+        stroke="#228B22" 
+        stroke-width="1" 
+        stroke-linejoin="round"/>
+  
+  <!-- Inner highlight -->
+  <path d="M10 8 L10 16 L16 12 Z" 
+        fill="#90EE90" 
+        opacity="0.4"/>
+</svg>

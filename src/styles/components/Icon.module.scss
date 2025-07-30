@@ -1,0 +1,222 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  transition: all var(--transition-fast);
+
+  // Hover effects for interactive icons
+  &.interactive {
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+      filter: brightness(1.2);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  // Size variants
+  &.small {
+    width: 16px;
+    height: 16px;
+  }
+
+  &.medium {
+    width: 24px;
+    height: 24px;
+  }
+
+  &.large {
+    width: 32px;
+    height: 32px;
+  }
+
+  &.xl {
+    width: 48px;
+    height: 48px;
+  }
+
+  // Color variants (for SVG icons with currentColor)
+  &.primary {
+    color: var(--primary-green);
+  }
+
+  &.secondary {
+    color: var(--secondary-green);
+  }
+
+  &.accent {
+    color: var(--accent-brown);
+  }
+
+  &.success {
+    color: var(--success);
+  }
+
+  &.warning {
+    color: var(--warning);
+  }
+
+  &.muted {
+    color: var(--text-muted);
+    opacity: 0.7;
+  }
+}
+
+// Specific icon styles
+.icon-tree,
+.icon-forest,
+.icon-leaf {
+  filter: drop-shadow(0 1px 2px rgba(45, 90, 39, 0.2));
+}
+
+.icon-play {
+  filter: drop-shadow(0 1px 2px rgba(34, 139, 34, 0.3));
+
+  &:hover {
+    filter: drop-shadow(0 2px 4px rgba(34, 139, 34, 0.4));
+  }
+}
+
+.icon-pause {
+  filter: drop-shadow(0 1px 2px rgba(255, 193, 7, 0.3));
+
+  &:hover {
+    filter: drop-shadow(0 2px 4px rgba(255, 193, 7, 0.4));
+  }
+}
+
+.icon-reset {
+  filter: drop-shadow(0 1px 2px rgba(139, 69, 19, 0.3));
+
+  &:hover {
+    filter: drop-shadow(0 2px 4px rgba(139, 69, 19, 0.4));
+  }
+}
+
+.icon-settings {
+  filter: drop-shadow(0 1px 2px rgba(74, 124, 89, 0.3));
+
+  &:hover {
+    filter: drop-shadow(0 2px 4px rgba(74, 124, 89, 0.4));
+    transform: rotate(45deg) scale(1.1);
+  }
+}
+
+.icon-sun {
+  filter: drop-shadow(0 1px 2px rgba(255, 215, 0, 0.4));
+
+  &:hover {
+    filter: drop-shadow(0 2px 6px rgba(255, 215, 0, 0.6));
+    transform: scale(1.1) rotate(15deg);
+  }
+}
+
+// Animation classes
+.icon {
+  &.spin {
+    animation: iconSpin 2s linear infinite;
+  }
+
+  &.pulse {
+    animation: iconPulse 2s ease-in-out infinite;
+  }
+
+  &.bounce {
+    animation: iconBounce 1s ease-in-out infinite;
+  }
+
+  &.shake {
+    animation: iconShake 0.5s ease-in-out;
+  }
+}
+
+@keyframes iconSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes iconPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes iconBounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes iconShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-2px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(2px);
+  }
+}
+
+// Responsive adjustments
+@include mobile {
+  .icon {
+    &.responsive {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+@include tablet {
+  .icon {
+    &.responsive {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+@include desktop {
+  .icon {
+    &.responsive {
+      width: 28px;
+      height: 28px;
+    }
+  }
+}

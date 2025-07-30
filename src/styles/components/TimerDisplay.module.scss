@@ -1,0 +1,183 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+// TimerDisplay component styles
+.timerDisplay {
+  position: relative;
+  @include flex-center;
+  padding: var(--space-8);
+  border-radius: var(--radius-2xl);
+  @include glass-effect;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-normal);
+  overflow: hidden;
+  min-height: 200px;
+  min-width: 300px;
+
+  @include mobile-only {
+    padding: var(--space-6);
+    min-height: 150px;
+    min-width: 250px;
+  }
+
+  // Focus mode styling
+  &.focusMode {
+    border: 3px solid var(--primary-green);
+    background: linear-gradient(
+      135deg,
+      rgba(45, 90, 39, 0.1),
+      rgba(74, 124, 89, 0.1)
+    );
+
+    .timeText {
+      color: var(--primary-green);
+      @include text-gradient;
+    }
+
+    .modeLabel {
+      color: var(--secondary-green);
+    }
+  }
+
+  // Break mode styling
+  &.breakMode {
+    border: 3px solid var(--accent-brown);
+    background: linear-gradient(
+      135deg,
+      rgba(139, 69, 19, 0.1),
+      rgba(160, 82, 45, 0.1)
+    );
+
+    .timeText {
+      color: var(--accent-brown);
+    }
+
+    .modeLabel {
+      color: var(--accent-brown-light);
+    }
+  }
+
+  // Active state styling
+  &.active {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-xl);
+
+    &.focusMode {
+      box-shadow: 0 12px 40px rgba(45, 90, 39, 0.2);
+    }
+
+    &.breakMode {
+      box-shadow: 0 12px 40px rgba(139, 69, 19, 0.2);
+    }
+  }
+
+  // Inactive state styling
+  &.inactive {
+    opacity: 0.8;
+  }
+
+  // Hover effects
+  &:hover {
+    transform: scale(1.01);
+
+    &.active {
+      transform: scale(1.03);
+    }
+  }
+}
+
+.timeContainer {
+  @include flex-column;
+  align-items: center;
+  gap: var(--space-2);
+  z-index: 2;
+  position: relative;
+}
+
+.timeText {
+  @include timer-display;
+  transition: all var(--transition-normal);
+}
+
+.modeLabel {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: color var(--transition-normal);
+
+  @include mobile-only {
+    font-size: var(--font-size-base);
+  }
+}
+
+// Animated pulse background for active state
+.pulseBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--radius-2xl);
+  z-index: 1;
+
+  .focusMode & {
+    background: radial-gradient(
+      circle,
+      rgba(45, 90, 39, 0.1) 0%,
+      transparent 70%
+    );
+    @include pulse-animation;
+  }
+
+  .breakMode & {
+    background: radial-gradient(
+      circle,
+      rgba(139, 69, 19, 0.1) 0%,
+      transparent 70%
+    );
+    @include pulse-animation;
+  }
+}
+
+// Accessibility improvements
+@include reduced-motion {
+  .timerDisplay {
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+
+    &.active:hover {
+      transform: none;
+    }
+  }
+
+  .pulseBackground {
+    animation: none;
+  }
+
+  .timeText {
+    transition: none;
+  }
+
+  .modeLabel {
+    transition: none;
+  }
+}
+
+@include high-contrast {
+  .timerDisplay {
+    border-width: 4px;
+    background: var(--background-card);
+
+    &.focusMode {
+      background: rgba(45, 90, 39, 0.05);
+    }
+
+    &.breakMode {
+      background: rgba(139, 69, 19, 0.05);
+    }
+  }
+}
