@@ -1,22 +1,16 @@
 @use "../variables" as *;
 @use "../mixins" as *;
 
-.background-image-container {
+.backgroundImageContainer {
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100vw;
   height: 100vh;
   z-index: -1;
   overflow: hidden;
-
-  .background-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: opacity var(--transition-slow);
-  }
 
   // Overlay for better text readability
   &::after {
@@ -28,39 +22,36 @@
     height: 100%;
     background: var(--background-overlay);
     pointer-events: none;
+    z-index: 1;
   }
+}
+
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity var(--transition-slow);
+  opacity: 0;
+  animation: fadeInBackground 1s ease-in-out forwards;
 }
 
 // Responsive adjustments
-@include mobile {
-  .background-image-container {
-    .background-image {
-      object-position: center top;
-    }
+@include mobile-only {
+  .backgroundImage {
+    object-position: center top;
   }
 }
 
-@include tablet {
-  .background-image-container {
-    .background-image {
-      object-position: center center;
-    }
+@include tablet-only {
+  .backgroundImage {
+    object-position: center center;
   }
 }
 
-@include desktop {
-  .background-image-container {
-    .background-image {
-      object-position: center bottom;
-    }
-  }
-}
-
-// Animation for smooth loading
-.background-image-container {
-  .background-image {
-    opacity: 0;
-    animation: fadeInBackground 1s ease-in-out forwards;
+@include desktop-up {
+  .backgroundImage {
+    object-position: center bottom;
   }
 }
 
@@ -75,10 +66,8 @@
 
 // High-resolution display optimizations
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .background-image-container {
-    .background-image {
-      image-rendering: -webkit-optimize-contrast;
-      image-rendering: crisp-edges;
-    }
+  .backgroundImage {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
   }
 }

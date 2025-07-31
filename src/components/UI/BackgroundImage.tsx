@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import styles from "../../styles/components/BackgroundImage.module.scss";
 
 interface BackgroundImageProps {
   className?: string;
@@ -47,7 +48,7 @@ export default function BackgroundImage({
   }, []);
 
   return (
-    <div className={`background-image-container ${className}`}>
+    <div className={`${styles.backgroundImageContainer} ${className}`}>
       <Image
         src={imageSrc}
         alt="Forest background with trees and sunlight"
@@ -55,7 +56,7 @@ export default function BackgroundImage({
         height={imageSize.height}
         priority={priority}
         quality={90}
-        className="background-image"
+        className={styles.backgroundImage}
         sizes="(max-width: 768px) 768px, (max-width: 1024px) 1024px, 1920px"
         style={{
           objectFit: "cover",
