@@ -130,6 +130,61 @@
   }
 }
 
+// GitHub Star Link
+.githubStar {
+  @include flex-center;
+  margin-left: var(--space-4);
+
+  @include mobile-only {
+    margin-left: 0;
+    margin-right: var(--space-3);
+  }
+}
+
+.githubLink {
+  @include flex-center;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--background-card);
+  transition: all var(--transition-normal);
+  @include hover-lift;
+  @include focus-visible;
+
+  &:hover {
+    color: var(--primary-green);
+    border-color: var(--primary-green);
+    background: rgba(45, 90, 39, 0.05);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .github-icon {
+    margin-right: var(--space-2);
+    transition: all var(--transition-fast);
+  }
+
+  &:hover .github-icon {
+    transform: scale(1.1);
+  }
+}
+
+.githubText {
+  white-space: nowrap;
+
+  @include lg {
+    display: none;
+  }
+
+  @include mobile-only {
+    display: none;
+  }
+}
+
 // Mobile Menu Button
 .mobileMenuButton {
   display: none;

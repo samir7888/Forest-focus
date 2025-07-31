@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { AdUnit } from "../AdSense";
 import Icon from "../UI/Icon";
 import styles from "../../styles/components/Header.module.scss";
 
@@ -63,7 +62,23 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
           </ul>
         </nav>
 
+
         {/* Mobile Menu Button */}
+        <div className="flex ">
+
+        {/* GitHub Star Link */}
+        <div className={styles.githubStar}>
+          <a
+            href="https://github.com/samir7888/Forest-focus"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.githubLink}
+            aria-label="Give it a star on GitHub"
+          >
+            <Icon name="github" size={20} className="github-icon" alt="" />
+            <span className={styles.githubText}>Give it a star</span>
+          </a>
+        </div>
         <button
           className={styles.mobileMenuButton}
           onClick={toggleMobileMenu}
@@ -90,6 +105,8 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
             aria-hidden="true"
           ></span>
         </button>
+
+        </div>
 
         {/* Mobile Navigation */}
         <nav

@@ -9,6 +9,7 @@ export type IconName =
   | "pause"
   | "reset"
   | "settings"
+  | "github"
   | "forest"
   | "sun";
 
