@@ -159,15 +159,6 @@ export default function RootLayout({
           }}
         />
 
-        {/* Google AdSense Script */}
-        <Script
-          id="google-adsense"
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0000000000000000"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
-
         {/* Google Analytics (placeholder for future implementation) */}
         <Script
           id="google-analytics"
@@ -200,6 +191,15 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+
+        {/* Google AdSense Script */}
+        <Script
+          id="google-adsense"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0000000000000000"
+          crossOrigin="anonymous"
+          strategy="beforeInteractive"
+        />
 
         <BackgroundImage priority />
         <div className="app-layout">
