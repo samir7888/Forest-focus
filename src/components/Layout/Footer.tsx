@@ -16,14 +16,14 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
     <footer className={`${styles.footer} ${className || ""}`}>
       <div className={styles.container}>
         {/* AdSense Unit Placement Area */}
-        <div className={styles.adSection}>
+        {/* <div className={styles.adSection}>
           <AdUnit
             adSlot="0987654321"
             adFormat="auto"
             className="footer-ad"
             style={{ maxWidth: "728px", margin: "0 auto" }}
           />
-        </div>
+        </div> */}
 
         {/* Footer Content */}
         <div className={styles.content}>

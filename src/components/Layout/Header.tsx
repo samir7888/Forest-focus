@@ -148,14 +148,14 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
       </div>
 
       {/* AdSense Unit */}
-      <div className={styles.adSection}>
+      {/* <div className={styles.adSection}>
         <AdUnit
           adSlot="1234567890"
           adFormat="auto"
           className="header-ad"
           style={{ maxWidth: "728px", margin: "0 auto" }}
         />
-      </div>
+      </div> */}
     </header>
   );
 };

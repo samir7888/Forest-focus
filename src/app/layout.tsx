@@ -143,7 +143,7 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+        {/* <link rel="preconnect" href="https://pagead2.googlesyndication.com" /> */}
 
         {/* Favicon and app icons */}
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
@@ -193,13 +193,13 @@ export default function RootLayout({
         </a>
 
         {/* Google AdSense Script */}
-        <Script
+        {/* <Script
           id="google-adsense"
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0000000000000000"
           crossOrigin="anonymous"
           strategy="beforeInteractive"
-        />
+        /> */}
 
         <BackgroundImage priority />
         <div className="app-layout">
@@ -214,7 +214,7 @@ export default function RootLayout({
           </ErrorBoundary>
         </div>
 
-        {/* AdSense initialization is handled by individual AdUnit components */}
+        {/* AdSense components temporarily disabled */}
       </body>
     </html>
   );
