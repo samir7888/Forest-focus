@@ -11,7 +11,8 @@ export type IconName =
   | "settings"
   | "github"
   | "forest"
-  | "sun";
+  | "sun"
+  | "logo";
 
 interface IconProps {
   name: IconName;

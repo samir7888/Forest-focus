@@ -28,7 +28,7 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
           <Link href="/" className={styles.logoLink}>
             <div className={styles.logoIcon}>
               <Icon
-                name="forest"
+                name="logo"
                 size={32}
                 className="interactive"
                 alt="ForestFocus logo"
@@ -62,50 +62,47 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
           </ul>
         </nav>
 
-
         {/* Mobile Menu Button */}
         <div className="flex ">
-
-        {/* GitHub Star Link */}
-        <div className={styles.githubStar}>
-          <a
-            href="https://github.com/samir7888/Forest-focus"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.githubLink}
-            aria-label="Give it a star on GitHub"
+          {/* GitHub Star Link */}
+          <div className={styles.githubStar}>
+            <a
+              href="https://github.com/samir7888/Forest-focus"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.githubLink}
+              aria-label="Give it a star on GitHub"
+            >
+              <Icon name="github" size={20} className="github-icon" alt="" />
+              <span className={styles.githubText}>Give it a star</span>
+            </a>
+          </div>
+          <button
+            className={styles.mobileMenuButton}
+            onClick={toggleMobileMenu}
+            aria-label={`${isMobileMenuOpen ? "Close" : "Open"} mobile menu`}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation"
           >
-            <Icon name="github" size={20} className="github-icon" alt="" />
-            <span className={styles.githubText}>Give it a star</span>
-          </a>
-        </div>
-        <button
-          className={styles.mobileMenuButton}
-          onClick={toggleMobileMenu}
-          aria-label={`${isMobileMenuOpen ? "Close" : "Open"} mobile menu`}
-          aria-expanded={isMobileMenuOpen}
-          aria-controls="mobile-navigation"
-        >
-          <span
-            className={`${styles.hamburgerLine} ${
-              isMobileMenuOpen ? styles.open : ""
-            }`}
-            aria-hidden="true"
-          ></span>
-          <span
-            className={`${styles.hamburgerLine} ${
-              isMobileMenuOpen ? styles.open : ""
-            }`}
-            aria-hidden="true"
-          ></span>
-          <span
-            className={`${styles.hamburgerLine} ${
-              isMobileMenuOpen ? styles.open : ""
-            }`}
-            aria-hidden="true"
-          ></span>
-        </button>
-
+            <span
+              className={`${styles.hamburgerLine} ${
+                isMobileMenuOpen ? styles.open : ""
+              }`}
+              aria-hidden="true"
+            ></span>
+            <span
+              className={`${styles.hamburgerLine} ${
+                isMobileMenuOpen ? styles.open : ""
+              }`}
+              aria-hidden="true"
+            ></span>
+            <span
+              className={`${styles.hamburgerLine} ${
+                isMobileMenuOpen ? styles.open : ""
+              }`}
+              aria-hidden="true"
+            ></span>
+          </button>
         </div>
 
         {/* Mobile Navigation */}

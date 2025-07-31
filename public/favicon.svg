@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Background circle for timer -->
+  <circle cx="24" cy="24" r="22" stroke="#2d5a27" stroke-width="2" fill="none" opacity="0.3"/>
+  
+  <!-- Timer arc (representing progress) -->
+  <path d="M 24 4 A 20 20 0 0 1 42 24" stroke="#4a7c59" stroke-width="3" fill="none" stroke-linecap="round"/>
+  
+  <!-- Main tree trunk -->
+  <rect x="22" y="28" width="4" height="12" fill="#8b4513" rx="2"/>
+  
+  <!-- Tree foliage layers -->
+  <!-- Bottom layer -->
+  <ellipse cx="24" cy="26" rx="12" ry="8" fill="#2d5a27"/>
+  
+  <!-- Middle layer -->
+  <ellipse cx="24" cy="22" rx="10" ry="6" fill="#4a7c59"/>
+  
+  <!-- Top layer -->
+  <ellipse cx="24" cy="18" rx="8" ry="5" fill="#6b9b73"/>
+  
+  <!-- Small leaves for detail -->
+  <ellipse cx="18" cy="24" rx="3" ry="2" fill="#4a7c59" transform="rotate(-15 18 24)"/>
+  <ellipse cx="30" cy="24" rx="3" ry="2" fill="#4a7c59" transform="rotate(15 30 24)"/>
+  <ellipse cx="24" cy="16" rx="2" ry="1.5" fill="#6b9b73"/>
+  
+  <!-- Timer hand/pointer -->
+  <line x1="24" y1="24" x2="24" y2="12" stroke="#daa520" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="24" cy="24" r="2" fill="#daa520"/>
+  
+  <!-- Small decorative elements -->
+  <circle cx="16" cy="16" r="1" fill="#daa520" opacity="0.7"/>
+  <circle cx="32" cy="16" r="1" fill="#daa520" opacity="0.7"/>
+  <circle cx="20" cy="32" r="0.5" fill="#4a7c59" opacity="0.5"/>
+  <circle cx="28" cy="32" r="0.5" fill="#4a7c59" opacity="0.5"/>
+</svg>
