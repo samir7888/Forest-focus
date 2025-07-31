@@ -118,7 +118,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: "/(.*).svg",
+        source: "/(.*).svg$",
         headers: [
           {
             key: "Cache-Control",
